@@ -11,6 +11,7 @@ build:
     - cd my-app
     - docker build --no-cache -t $IMAGE_NAME .
 
+
 deploy:
   stage: deploy
   script:

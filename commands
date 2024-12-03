@@ -1,0 +1,4 @@
+docker build --no-cache -t react-app .
+docker rm node-app
+docker run -p 8899:3000 --name node-app react-app
+

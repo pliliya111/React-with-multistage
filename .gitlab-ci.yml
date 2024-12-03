@@ -1,0 +1,19 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  IMAGE_NAME: react-app
+
+build:
+  stage: build
+  script:
+    - cd my-app
+    - docker build --no-cache -t $IMAGE_NAME .
+
+deploy:
+  stage: deploy
+  script:
+    - cd my-app
+    - docker rm -f node-app || true
+    - docker run -d -p 80:80 --name node-app $IMAGE_NAME
